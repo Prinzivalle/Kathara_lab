@@ -1,0 +1,4 @@
+/etc/init.d/networking restart
+#/etc/init.d/quagga restart
+ip route add 192.168.0.0/25 via 1.0.1.15
+#iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
