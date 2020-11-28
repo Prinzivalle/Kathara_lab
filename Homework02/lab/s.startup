@@ -13,13 +13,9 @@ echo "10.0.1.17		r6" > /etc/hosts
 echo "10.0.1.19		r7" > /etc/hosts
 
 # ssh keys
-mkdir /root/.ssh
-cp /shared/id_rsa.pub /root/.ssh/
-cp /shared/id_rsa /root/.ssh/
+mv /root/ssh /root/.ssh
+#mkdir /root/.ssh
+#cp /shared/id_rsa.pub /root/.ssh/
+#cp /shared/id_rsa /root/.ssh/
 chmod -R 600 /root/.ssh/
 
-# echo -e '\n\n\n' | ssh-keygen
-# pwd
-# cp /root/.ssh/id_rsa.pub /hostlab
-
-#scp .ssh/id_rsa.pub exam_user@r2:/home/exam_user
