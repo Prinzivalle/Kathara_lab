@@ -6,9 +6,8 @@ echo "10.0.1.12		r2" > /etc/hosts
 
 
 # ssh keys
-echo -e '\n\n\n' | ssh-keygen
-pwd
-cp /root/.ssh/id_rsa.pub /hostlab
+# echo -e '\n\n\n' | ssh-keygen
+# pwd
+# cp /root/.ssh/id_rsa.pub /hostlab
 
 #scp .ssh/id_rsa.pub exam_user@r2:/home/exam_user
-#ssh-copyid exam_user@r2
