@@ -4,13 +4,13 @@
 # ip route add default via 1.0.1.12
 
 # add host name of router
-echo "10.0.1.2		r1" >> /etc/hosts
-echo "10.0.1.12		r2" >> /etc/hosts
-echo "10.0.1.5		r3" >> /etc/hosts
-echo "10.0.1.9		r4" >> /etc/hosts
-echo "10.0.1.15		r5" >> /etc/hosts
-echo "10.0.1.17		r6" >> /etc/hosts
-echo "10.0.1.19		r7" >> /etc/hosts
+echo "1.0.1.2	r1" >> /etc/hosts
+echo "1.0.1.12	r2" >> /etc/hosts
+echo "1.0.1.5	r3" >> /etc/hosts
+echo "1.0.1.9	r4" >> /etc/hosts
+echo "1.0.1.15	r5" >> /etc/hosts
+echo "1.0.1.17	r6" >> /etc/hosts
+echo "1.0.1.19	r7" >> /etc/hosts
 
 # ssh keys
 mv /root/ssh /root/.ssh
@@ -18,4 +18,13 @@ mv /root/ssh /root/.ssh
 #cp /shared/id_rsa.pub /root/.ssh/
 #cp /shared/id_rsa /root/.ssh/
 chmod -R 600 /root/.ssh/
+
+# vpn
+# not needed to wait ospf since s is directly connected to r2
+#apt update
+#apt install -y openvpn
+
+#mkdir -p /dev/net
+#mknod /dev/net/tun c 10 200
+#chmod 600 /dev/net/tun
 
