@@ -21,10 +21,11 @@ chmod -R 600 /root/.ssh/
 
 # vpn
 # not needed to wait ospf since s is directly connected to r2
-#apt update
-#apt install -y openvpn
+apt update
+apt install -y openvpn
 
-#mkdir -p /dev/net
-#mknod /dev/net/tun c 10 200
-#chmod 600 /dev/net/tun
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
 
+openvpn /root/client.conf
