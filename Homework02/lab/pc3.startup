@@ -10,4 +10,4 @@ useradd port_forw -d /home/port_forw
 chown port_forw:port_forw /home/port_forw
 echo -e 'foo\nfoo\n' | passwd port_forw
 
-apt update && apt install -y netcat
+# apt update && apt install -y netcat

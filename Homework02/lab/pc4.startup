@@ -1,6 +1,6 @@
 /etc/init.d/networking restart
 
-apt update && apt install -y netcat
+# apt update && apt install -y netcat
 
 # ssh port forwarding
 #ssh-keyscan -t rsa 192.168.1.100 > /root/.ssh/known_hosts
