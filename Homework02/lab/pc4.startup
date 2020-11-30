@@ -1,7 +1,5 @@
 /etc/init.d/networking restart
 
-# apt update && apt install -y netcat
-
 # ssh keys
 mv /root/ssh /root/.ssh
 chmod -R 600 /root/.ssh/ 
