@@ -24,6 +24,9 @@ chmod -R 600 /root/.ssh/
 #apt update
 #apt install -y openvpn
 
+chmod 600 /root/client*
+chmod 600 /root/ca.crt
+
 mkdir -p /dev/net
 mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
