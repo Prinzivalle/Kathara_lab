@@ -1,0 +1,29 @@
+/etc/init.d/networking restart
+
+# add host name of router
+echo "1.0.1.2	r1" >> /etc/hosts
+echo "1.0.1.12	r2" >> /etc/hosts
+echo "1.0.1.5	r3" >> /etc/hosts
+echo "1.0.1.9	r4" >> /etc/hosts
+echo "1.0.1.15	r5" >> /etc/hosts
+echo "1.0.1.17	r6" >> /etc/hosts
+echo "1.0.1.19	r7" >> /etc/hosts
+
+# ssh 
+echo -e 'exam\nexam\n\n\n\n\n\ny\n' | adduser exam_user --home /home/exam_user
+chown exam_user:exam_user /home/exam_user
+mv /home/exam_user/ssh /home/exam_user/.ssh
+chown exam_user:exam_user /home/exam_user/.ssh
+chmod 700 /home/exam_user/.ssh
+touch /home/exam_user/.ssh/authorized_keys
+chown exam_user:exam_user /home/exam_user/.ssh/authorized_keys
+chmod 600 /home/exam_user/.ssh/authorized_keys
+/etc/init.d/ssh restart
+
+# vpn
+chmod 600 /root/client*
+chmod 600 /root/ca.crt
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+openvpn /root/client.conf
