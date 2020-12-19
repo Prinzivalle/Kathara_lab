@@ -1,6 +1,6 @@
 $TTL 2d
 exam.org. IN SOA ns.exam.org. hostmaster.exam.org (
-	2014050600 ; serial
+	20140 ; serial
 	28 ; refresh
 	14 ; retry
 	3600000 ; expire
@@ -10,8 +10,6 @@ exam.org. IN SOA ns.exam.org. hostmaster.exam.org (
 exam.org.	IN	NS	ns.exam.org.
 
 ns.exam.org.	IN	A	1.0.1.13
-pc1.exam.org.	IN	A	192.168.0.2
-pc2.exam.org.	IN	A	192.168.0.3
 pc3.exam.org.	IN	A	192.168.1.100
 pc4.exam.org.	IN	A	192.168.2.100
 r1.exam.org.	IN	A	1.0.1.2

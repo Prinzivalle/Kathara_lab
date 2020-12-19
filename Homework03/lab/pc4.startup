@@ -1,8 +1,11 @@
 /etc/init.d/networking restart
 
+echo ServerName localhost >> /etc/apache2/apache2.conf
+/etc/init.d/apache2 start
+
 # ssh keys
-mv /root/ssh /root/.ssh
-chmod -R 600 /root/.ssh/ 
+#mv /root/ssh /root/.ssh
+#chmod -R 600 /root/.ssh/ 
 
 # ssh port forwarding
-( while ! ping -c 1 1.0.1.9 >/dev/null; do sleep 2; done; ssh -o "StrictHostKeyChecking no" -4 -NL 9000:192.168.1.100:8080 port_forw@192.168.1.100 ) &
+#( while ! ping -c 1 1.0.1.9 >/dev/null; do sleep 2; done; ssh -o "StrictHostKeyChecking no" -4 -NL 9000:192.168.1.100:8080 port_forw@192.168.1.100 ) &

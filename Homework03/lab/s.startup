@@ -1,4 +1,6 @@
 /etc/init.d/networking restart
+chmod 660 /etc/bind/rndc.conf
+chown root:bind /etc/bind/rndc.conf
 /etc/init.d/bind start
 
 # ssh 
