@@ -1,23 +1,10 @@
 /etc/init.d/networking restart
 
-# ssh port forwarding
+# ssh port forwarding keys
 mkdir /root/.ssh/ &&cp -r /shared/rpf_keys/* /root/.ssh/&&chmod 700 /root/.ssh/ &&chmod 600 /root/.ssh/*
-
-#mkdir /home/port_forw
-#useradd port_forw -d /home/port_forw
-#chown port_forw:port_forw /home/port_forw
-#echo -e 'foo\nfoo\n' | passwd port_forw
-#mv /home/port_forw/ssh /home/port_forw/.ssh
-#chown port_forw:port_forw /home/port_forw/.ssh
-#chmod 700 /home/port_forw/.ssh
-#touch /home/port_forw/.ssh/authorized_keys
-#chown port_forw:port_forw /home/port_forw/.ssh/authorized_keys
-#chmod 600 /home/port_forw/.ssh/authorized_keys
 
 # ssh keys to access s
 mkdir /root/.ssh/ && cp -r /shared/ssh_keys/* /root/.ssh/ &&chmod 700 /root/.ssh/ && chmod 600 /root/.ssh/*
-#mv /root/ssh /root/.ssh
-#chmod -R 600 /root/.ssh/
 
 /etc/init.d/ssh restart
 

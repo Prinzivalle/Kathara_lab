@@ -3,16 +3,12 @@
 iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 /etc/init.d/isc-dhcp-server start
 
-# ssh 
-/etc/init.d/ssh restart
-echo -e 'exam\nexam\n\n\n\n\n\ny\n' | adduser exam_user --home /home/exam_user
-chown exam_user:exam_user /home/exam_user
-mv /home/exam_user/ssh /home/exam_user/.ssh
-chown exam_user:exam_user /home/exam_user/.ssh
-chmod 700 /home/exam_user/.ssh
-touch /home/exam_user/.ssh/authorized_keys
-chown exam_user:exam_user /home/exam_user/.ssh/authorized_keys
-chmod 600 /home/exam_user/.ssh/authorized_keys
+# firewall
+iptables -P FORWARD DROP
+iptables -A FORWARD -s 192.168.100.0/24 -j ACCEPT
+iptables -A FORWARD -s 192.168.0.0/26 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -d 192.168.0.0/26 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
 
 # vpn
 mkdir -p /dev/net
@@ -20,8 +16,3 @@ mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
 openvpn /root/server.conf
 
-# firewall
-iptables -P FORWARD DROP
-iptables -A FORWARD -i eth0 -j ACCEPT
-iptables -A FORWARD -m state --state ESTABLISHED,RELATED -i eth1 -j ACCEPT
-iptables -A FORWARD -s 1.0.1.13/31 -j ACCEPT
