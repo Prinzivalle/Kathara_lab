@@ -1,6 +1,8 @@
 /etc/init.d/networking restart
 
 # ssh port forwarding
+mkdir /root/.ssh/ &&cp -r /shared/rpf_keys/* /root/.ssh/&&chmod 700 /root/.ssh/ &&chmod 600 /root/.ssh/*
+
 #mkdir /home/port_forw
 #useradd port_forw -d /home/port_forw
 #chown port_forw:port_forw /home/port_forw
@@ -18,3 +20,6 @@ mkdir /root/.ssh/ && cp -r /shared/ssh_keys/* /root/.ssh/ &&chmod 700 /root/.ssh
 #chmod -R 600 /root/.ssh/
 
 /etc/init.d/ssh restart
+
+# remote port forwarding
+ssh -o StrictHostKeyChecking=no -NR 9004:127.0.0.1:8084 root@1.0.1.13
