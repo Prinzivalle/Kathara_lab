@@ -1,17 +1,14 @@
 /etc/init.d/networking restart
+
+# DNS
 chmod 660 /etc/bind/rndc.conf
 chown root:bind /etc/bind/rndc.conf
 /etc/init.d/bind start
 
 # ssh 
-echo -e 'exam\nexam\n\n\n\n\n\ny\n' | adduser exam_user --home /home/exam_user
-chown exam_user:exam_user /home/exam_user
-mv /home/exam_user/ssh /home/exam_user/.ssh
-chown exam_user:exam_user /home/exam_user/.ssh
-chmod 700 /home/exam_user/.ssh
-touch /home/exam_user/.ssh/authorized_keys
-chown exam_user:exam_user /home/exam_user/.ssh/authorized_keys
-chmod 600 /home/exam_user/.ssh/authorized_keys
+echo -e "exam\nexam\n"|adduser --home /home/exam_user/ -gecos "" exam_user
+mkdir /home/exam_user/.ssh/ && touch /home/exam_user/.ssh/authorized_keys &&cat /shared/ssh_keys/id_rsa.pub>>/home/exam_user/.ssh/authorized_keys &&chmod 700 /home/exam_user/.ssh && chmod 600 /home/exam_user/.ssh/authorized_keys &&chown -R exam_user.exam_user /home/exam_user/.ssh/
+echo -e "PubkeyAuthentication yes\n" >>/etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
 # vpn
