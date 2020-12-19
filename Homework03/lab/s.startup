@@ -1,9 +1,7 @@
 /etc/init.d/networking restart
 
 # DNS
-chmod 660 /etc/bind/rndc.conf
-chown root:bind /etc/bind/rndc.conf
-/etc/init.d/bind start
+cp /shared/ddns.key /etc/bind/ && chown root:bind /etc/bind/ddns.key && chmod 640 /etc/bind/ddns.key && cd /var/cache/bind && ln -s /etc/bind/db.example.org . && ln -s /etc/bind/db.192.168.2 . && chgrp -R bind /etc/bind && chmod g+w -R /etc/bind && chown -R bind /var/cache/bind/ && /etc/init.d/bind start
 
 # ssh 
 echo -e "exam\nexam\n"|adduser --home /home/exam_user/ -gecos "" exam_user
