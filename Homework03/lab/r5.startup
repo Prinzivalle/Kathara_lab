@@ -2,7 +2,7 @@
 /etc/init.d/quagga restart
 iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 
-# DHCP
+# DHCP and dynamic update on DNS on 1.0.1.13
 cp /shared/ddns.key /etc/dhcp/ && chown root:bind /etc/dhcp/ddns.key && chmod 640 /etc/dhcp/ddns.key && /etc/init.d/isc-dhcp-server start
 
 # firewall

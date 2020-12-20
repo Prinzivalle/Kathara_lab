@@ -10,7 +10,7 @@ exam.org. IN SOA ns.exam.org. hostmaster.exam.org (
 exam.org.	IN	NS	ns.exam.org.
 
 ns.exam.org.	IN	A	1.0.1.13
-s.exam.org.	IN	A	1.0.1.13
+s.exam.org.		IN	A	1.0.1.13
 pc3.exam.org.	IN	A	192.168.1.100
 pc4.exam.org.	IN	A	192.168.2.100
 r1.exam.org.	IN	A	1.0.1.2

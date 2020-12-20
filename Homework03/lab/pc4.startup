@@ -1,6 +1,6 @@
 /etc/init.d/networking restart
 
 # Apache
-echo ServerName localhost >> /etc/apache2/apache2.conf
-/etc/init.d/apache2 start
+echo ServerName localhost >> /etc/apache2/apache2.conf && /etc/init.d/apache2 start
+
 

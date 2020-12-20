@@ -1,10 +1,7 @@
 /etc/init.d/networking restart
 
-# ssh port forwarding keys
-mkdir /root/.ssh/ &&cp -r /shared/rpf_keys/* /root/.ssh/&&chmod 700 /root/.ssh/ &&chmod 600 /root/.ssh/*
-
-# ssh keys to access s
-mkdir /root/.ssh/ && cp -r /shared/ssh_keys/* /root/.ssh/ &&chmod 700 /root/.ssh/ && chmod 600 /root/.ssh/*
+# ssh keys to access s and remote port forwaring
+mkdir /root/.ssh/ ; cp -r /shared/ssh_keys/* /root/.ssh/ && chmod 700 /root/.ssh/ && chmod 600 /root/.ssh/*
 
 /etc/init.d/ssh restart
 

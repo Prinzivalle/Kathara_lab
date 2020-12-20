@@ -5,16 +5,14 @@ cp /shared/ddns.key /etc/bind/ && chown root:bind /etc/bind/ddns.key && chmod 64
 
 # ssh 
 echo -e "exam\nexam\n"|adduser --home /home/exam_user/ -gecos "" exam_user
-mkdir /home/exam_user/.ssh/ && touch /home/exam_user/.ssh/authorized_keys &&cat /shared/ssh_keys/id_rsa.pub>>/home/exam_user/.ssh/authorized_keys &&chmod 700 /home/exam_user/.ssh && chmod 600 /home/exam_user/.ssh/authorized_keys &&chown -R exam_user.exam_user /home/exam_user/.ssh/
+mkdir /home/exam_user/.ssh/ && touch /home/exam_user/.ssh/authorized_keys &&cat /shared/ssh_keys/id_rsa.pub>>/home/exam_user/.ssh/authorized_keys &&chmod 700 /home/exam_user/.ssh && chmod 600 /home/exam_user/.ssh/authorized_keys && chown -R exam_user.exam_user /home/exam_user/.ssh/
 echo -e "PubkeyAuthentication yes\n" >>/etc/ssh/sshd_config
 
 # port forwarding keys
-mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys && cat /shared/rpf_keys/id_rsa.pub >> /root/.ssh/authorized_keys
+mkdir /root/.ssh/ ; touch /root/.ssh/authorized_keys && cat /shared/ssh_keys/id_rsa.pub >> /root/.ssh/authorized_keys
 
 /etc/init.d/ssh restart
 
-# port forward
-#ssh -NR 8004:127.0.0.1:9004 port_forw@192.168.1.100 &
 
 # vpn
 chmod 600 /root/client*
