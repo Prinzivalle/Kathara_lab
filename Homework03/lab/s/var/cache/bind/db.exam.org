@@ -12,7 +12,7 @@ exam.org.	IN	NS	ns.exam.org.
 ns.exam.org.	IN	A	1.0.1.13
 s.exam.org.		IN	A	1.0.1.13
 pc3.exam.org.	IN	A	192.168.1.100
-pc4.exam.org.	IN	A	192.168.2.100
+pc4.exam.org.	IN	A	192.168.2.10
 r1.exam.org.	IN	A	1.0.1.2
 r2.exam.org.	IN	A	1.0.1.4
 r3.exam.org.	IN	A	1.0.1.6
